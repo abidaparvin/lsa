@@ -5,7 +5,7 @@ cd /home
 mkdir servernfs
 cd servernfs
 cat > newfile
-       hello tyit
+       hello tyit   (Esc+Shift+:  type:wq)
 vi /etc/exports
 	/home/servernfs * (rw,sync)
 service iptables stop
