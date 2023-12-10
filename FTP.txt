@@ -1,0 +1,19 @@
+rpm -qa | grep vsftpd
+ifconfig
+service vsftpd status
+service vsftpd start
+vim /var/ftp/pub
+File  Cointent: Oh really nigga you want content? //Now press "ESC + SHIFT + (:)";
+vim /etc/vsftpd/vsftpd.conf
+getseebol -a | grep ftp
+// on annon, on home dir
+setsebool -P allow_ftpd_annon_write on
+setsebool -P ftp_home_dir on
+chgrp ftp /var/ftp/pub
+chown ftp /var/ftp/pub
+ls -ld /var/ftp/pub
+cd /var/ftp/pub 
+touch T1 T2 T3
+
+Now go to browser and write the folllowing url:
+ftp://192.168.1.3

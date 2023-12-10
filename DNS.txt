@@ -1,0 +1,65 @@
+// Check ip, if not configured then configure the ip as "192.168.1.3" then chk ip:
+#ifconfig
+#ifconfig eth0 192.168.1.3
+#ifconfig 
+
+// Check hots names then write the domain name at line number 3 with ip address:
+#vim/etc/hosts
+192.168.1.3 server.tyit.com
+
+//Edit  hostname:
+#vim /etc/sysconfig/network
+
+// open resolv.conf file and edit host name:
+# vim/etc/resolv.conf
+domain server.tyit.com
+search tyit.com
+nameserver 192.168.1.3
+
+Note: install bind pakackage from CD then open named.conf file:
+# vim/etc/named.conf 
+// after opening this file edit at "listen-on port 53 same as "{192.168.1.3;};"
+then comment this line using hash "#" : listen-on v6 port 53{:: 1; };
+then make changes as "allow - query{any;};"
+save changes! 
+
+// Now Configure named.rfc1912.zones file:
+# vim/etc/named.rfc1912.zones
+// After opening this file go to line number 31 to open line mode press ESC + Shift + (:)" and type ":se nu" after colon
+Make cahnges on line num 31 & 33 as:
+31 zone "tyit.com" IN{
+33 	file "forward.zone";
+
+Make changes on line num 39 as:
+39	file "reverse.zone";
+save changes!
+
+# cd /var/named
+# ls
+// copy config file:
+# cp named.loop.localhost froward.zone
+# cp named.loop.localhost reverse.zone
+
+# vim forward.zone 
+// give fullyCollified hostName as 
+after @ 	IN SOA "server.tyit.com. root.server.tyit.com."(
+then write this:IN 	NS 	server.tyit.com.
+server 		IN 	A	192.168.1.3
+save changes!
+
+// after that open this file:
+# vim revcerse.zone
+// give fullyCollified hostName as 
+after @ 	IN SOA "server.tyit.com. root.server.tyit.com."(
+then write this:IN 	NS 	server.tyit.com.
+3 		IN 	PTR	192.168.1.3
+save changes!
+
+//Now chnage the group of both files!
+named]# chgrp named forward.zone
+named]# chgrp named reverse.zone
+# service named start
+# dig -x 192.168.1.3
+# nslookup
+# server.tyit.com
+# 192.168.1.3

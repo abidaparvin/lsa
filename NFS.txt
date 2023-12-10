@@ -1,0 +1,25 @@
+server side
+
+rpm -qa | grep nfs
+cd /home
+mkdir servernfs
+cd servernfs
+cat > newfile
+       hello tyit
+vi /etc/exports
+	/home/servernfs * (rw,sync)
+service iptables stop
+service iptables status
+sevice  nfs restart 
+showmount -e 192.168.1.3
+service vsftpd stop 
+service vsftpd  status
+chmod -R 777 /home/servernfs
+
+
+client side 
+
+cd /home 
+ls
+mkdir clientnfs
+mount -t nfs 192.168.1.3:/home/servernfs /home/clientnfs

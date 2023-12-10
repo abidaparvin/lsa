@@ -1,0 +1,33 @@
+NOTE: DNS should be configured first
+
+# rpm -qa | grep sendmail
+# vim /etc/mail/sendmail.mc
+Line 16- comment (using # at the beginning)
+
+# vim /etc/mail/sendmail.mc > /etc/mail/sendmail.cf
+
+To check whether DNS is configured,
+
+# dig server.tyit.com
+	or
+# dig -x 192.168.1.3
+
+# vi /var/named/forward.zone
+Add IN	MX	192.168.1.3 -[Below IN	A	192.168.1.3]
+Save the changes
+
+# service sendmail restart
+
+# useradd test
+# passwd test
+# mail@server.tyit.com
+Subject: xyz
+Body: xyz
+Save and come out.
+
+-------
+Switch user on the same terminal
+
+# su - test
+$ mail -[To open Inbox]
+$ 1 -[Type 1 and enter to access the mail]

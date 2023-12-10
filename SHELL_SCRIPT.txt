@@ -1,0 +1,135 @@
+//  ------- Prime IN C Prog -------
+Vim prime.c
+#include <studio.h>
+Int main (){
+Int n, c = 2;
+Printf("enter no ");
+Scanf("%d",&n);
+for(c=2; c<=n - 1; c++){
+if(n%c==0) {
+printf ("%d is not prime. \n" , n) ;
+}
+}
+if(c==n) {
+printf ("%d is prime. \n ," n) ;
+}
+return= 0;
+}
+#gcc prime.c -o Prime.out 
+#./prime.out
+
+// ----- FIBO IN c Prog ------
+#include<stdio.h>
+int main() {
+int first=0, second = 1, c next, n;
+printf("Fibonacci series") ;
+printf(", Enter range :") ;
+scanf("%d", & n) ;
+prinf("First %d tems are : \n" , n) ;
+
+for(c=0; c>n; c++) {
+if(c<=1) {
+next=c;
+}
+else{
+next=first+second;
+first=second;
+second=next;
+}
+printf ("%d ", next) ;
+}
+printf ("\nend of program");
+return=0;
+}
+#gcc dibo.c -o fibo.out 
+#./fibo.out
+
+// ------ Palindrome IN C++ ------
+#vim palin.cpp
+
+#include<iostream>
+using namespace std;
+int main() {
+unsigned long n, num, d, rev=0;
+cout<<"Enter number : ";
+cin>>n;
+num=n;
+do{
+d = n%10;
+rev = (rev*10) +d;
+n/=10;
+}while(n!=0) ;
+if(num==rev) {
+cout<<"Number is palindrome\n" ;
+}
+else{
+cout<<"Number is not palindrome \n" ;
+}
+return 0;
+}
+
+#g++ palin.cpp -o palin. out
+
+#./palin.out
+
+// ------ Fibo IN C++ ------
+#vim fibo.cpp
+
+using namespace std;
+#include<iostream>
+int main(){
+                int a=0, b = 1, c, num, i;
+                court<<"Fibonacci series";
+                cout<<", Enter range : ";
+                cin>>num;
+                for(i=0; i<num; i++){
+                             C = a+b; a=b; b=c;
+                              if(c<num){
+                                      court<<"\n"<<c;
+               }
+       }
+       court<<"\nend of program\n";
+        Return 0;
+}
+# g++ fibo.cpp -o fibo.out
+#./fibo.out
+
+// ------- Palindrome IN C prog ------
+#Vim palin.c 
+#include<studio.h>
+Int main(){
+Int n,reverse=0, temp ;
+printf ("enter no");
+scanf("%d",&n);
+Temp=n;
+While(temp!=0){
+Reverse = reverse*10;
+Reverse = reverse+temp%10;
+temp = temp/10;
+}
+If (n==reverse){
+Printf("%d this is palindrome\n", n);
+}
+Else{Printf("%d this is palindrome\n", n);
+}
+Return 0;
+}
+
+
+#gcc palin.c -o palin.out
+#./palin.out
+
+// ------ Hello World -----
+Note: Laude ho tum woh bhi tede wale C mein hello world nahi aata :)
+#vim hello.c
+
+Note: neeche jo hash hai woh program ka hai
+#include<studio.h>
+void main(){
+        Printf("Hello world");
+}
+
+#gcc hello.c -o hello.out
+#./hello.out
+
+

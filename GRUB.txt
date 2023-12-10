@@ -1,0 +1,8 @@
+#vim/etc/grub/grub.conf
+
+//Edit the following line as:
+timeout=8
+title Doob ke marja laude mera ye bhi nahi hua tujhse toh!!
+
+then press ESC + SHIFT + (:) uske baad "wq" save karne ke liye
+#init 6
